@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         .silder{
+            -webkit-appearance: none;
+            width: 200px;
+            height: 10px;
+            background: linear-gradient(90deg, rgba(255,10,10,1) 0%, rgba(248,148,7,1) 23%, rgba(235,188,15,1) 41%, rgba(222,219,23,1) 52%, rgba(166,242,8,1) 74%, rgba(0,255,25,0.981127485173757) 90%);
+            border-radius: 5px ;
+            box-shadow: -1px 5px 26px -3px white;
+        } 
+        .silder::-webkit-slider-thumb{
+            -webkit-appearance: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: white;
+            cursor: pointer;
+        }
+        body{
+            background-color: #414141; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .output{
+            color: white;
+            position: relative;
+            top: 45px;
+            font-size: 35px;
+        }
+        .emoji{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 120px;
+            position: relative;
+            bottom: 90px;
+            width: 120px;
+            height: 120px;
+        }
+        .text{
+            position: relative;
+            bottom: 180px;
+            color: white;
+            font-size: 35px;
+        }
+    </style>
+</head>
+<body>
+    <div class="text">USER EXPERIENCE</div>
+    <div class="emoji"></div>
+    <div>
+        <input class="silder" type="range" name="value" min="1" max="10" id="mysilder"> 
+    </div>
+    <div class="output">Rating:<span id="inoutput"></span></div>
+    <script>
+        var silder=document.getElementById("mysilder")
+        var output=document.getElementById("inoutput")
+        const emoji_array=['&#128545;','&#128548;','&#128555;','&#128543;','&#128527;','&#128528;','&#128517;','&#128522;','&#128513;','&#128525;']
+        document.addEventListener('mousemove',movemouth)
+
+        function movemouth(){
+            let silderval=silder.value
+            switch(silderval){
+                case '1':document.querySelector(".emoji").innerHTML=emoji_array[0]
+                         break;
+                case  '2':document.querySelector(".emoji").innerHTML=emoji_array[1]
+                         break;
+                case  '3':document.querySelector(".emoji").innerHTML=emoji_array[2]
+                         break;
+                case  '4':document.querySelector(".emoji").innerHTML=emoji_array[3]
+                         break;
+                case  '5':document.querySelector(".emoji").innerHTML=emoji_array[4]
+                         break;
+                case  '6':document.querySelector(".emoji").innerHTML=emoji_array[5]
+                         break;
+                case  '7':document.querySelector(".emoji").innerHTML=emoji_array[6]
+                         break;
+                case  '8':document.querySelector(".emoji").innerHTML=emoji_array[7]
+                         break;
+                case  '9':document.querySelector(".emoji").innerHTML=emoji_array[8]
+                         break;
+                case  '10':document.querySelector(".emoji").innerHTML=emoji_array[9]
+                         break;
+            }                     
+         }
+            
+        output.innerHTML=silder.value
+        silder.oninput=function(){
+            output.innerHTML=silder.value  
+            
+        }
+    </script>
+</body>
+</html>
